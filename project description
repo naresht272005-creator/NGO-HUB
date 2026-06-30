@@ -1,0 +1,135 @@
+NGO HUB Portal
+Connect. Collaborate. Impact.
+A Web-Based Platform for NGO Management, Collaboration & Donor Transparency
+1. Project Overview
+NGO HUB Portal is a comprehensive, single-page web application designed to bring NGOs
+(Non-Governmental Organizations), corporate partners, and donors onto one unified digital platform. The
+project addresses a real-world problem: NGOs working on social causes such as healthcare, women's
+welfare, river conservation, tree plantation, water management, agriculture, and education often operate
+in isolation, with limited visibility into their own impact and little structured way to collaborate with funding
+partners. NGO HUB Portal solves this by combining partner management, fund tracking, impact analytics,
+donation handling, grant tracking, an internal news feed, an event calendar, NGO-to-company
+collaboration, and a public transparency dashboard, all within a single, modern, responsive web interface.
+The platform is built entirely with front-end web technologies (HTML, CSS and JavaScript), making it
+lightweight, portable, and easy to deploy without requiring a dedicated backend server for its core
+demonstration features. It uses browser-based local storage for persistence and integrates third-party
+libraries for spreadsheet parsing and interactive mapping.
+2. Objectives
+l Provide a centralised dashboard where companies/CSR teams can discover, verify, and manage
+partnerships with multiple NGOs.
+l Allow NGOs to register, get verified through a structured document-upload workflow, and showcase
+their work transparently.
+l Enable donors and partner companies to track exactly how funds are utilised through visual analytics
+and statistics.
+l Visualise the geographical spread of NGO activity and field impact using an interactive map.
+l Support real-world NGO operational data (medical camps, women's welfare, river clean-ups, tree
+plantation, water projects, agriculture, education, health) by ingesting and analysing uploaded Excel
+datasets.
+l Facilitate communication and resource sharing between NGOs and partner companies through an
+internal collaboration and messaging module.
+l Build donor trust through a public transparency view of fund utilisation and campaign spending.
+3. Key Modules & Features
+3.1 Authentication & Onboarding
+l Landing page with sign-in flow and a guided 'How to use' walkthrough for first-time users.
+l NGO verification workflow with step-based progress tracking and document upload (registration
+certificates, etc.).
+l Status-based routing that automatically directs verified, pending, or rejected NGOs to the correct
+page.
+3.2 Company / Partner Dashboard
+l A tabbed dashboard covering Partners, Impact Analytics, Donations, Grant Tracker, News Feed,
+Event Calendar, Collaborate, Alerts, and Transparency — nine functional tabs in one workspace.
+l Partner directory listing all onboarded NGOs with quick access to each NGO's individual profile page.
+l Ability to add new NGOs and new events/campaigns directly through modal forms.
+3.3 Impact Analytics Engine
+One of the most technically significant parts of the project is the data-driven impact analytics engine. The
+portal allows Excel (.xlsx) datasets to be uploaded for a specific NGO event/campaign, which are then
+parsed in the browser (using the SheetJS/xlsx.js library) and automatically routed to a domain-specific
+statistics renderer depending on the nature of the data.
+l Dedicated statistical processing modules for: Medical Camps, Women's Welfare, River Conservation,
+Tree Plantation, Water Projects, Agriculture, General Welfare, Education, and Health datasets.
+l Drag-and-drop file upload with preview, validation, and the ability to clear/re-upload data per
+campaign.
+l Automatic column detection logic to intelligently map uploaded spreadsheet columns to the expected
+statistical fields for each domain.
+l Aggregated cross-NGO charts: Funds by NGO, Campaign Spend by NGO, Campaigns per NGO, and
+Fund Utilisation percentage.
+l A predictive insights feature (renderCompanyPrediction) that projects trends for a company's partner
+NGOs based on historical data.
+3.4 Interactive Impact Map
+An interactive map (built with Leaflet.js) plots every NGO's location, colour-coded by category (e.g. health,
+environment, education, welfare). Users can click an NGO to fly to its location on the map, giving
+stakeholders an immediate geographic sense of where field activity is concentrated.
+3.5 Donations & Fund Management
+l Donation modal with preset and custom donation amounts per NGO.
+l Running donation totals and a donation history log.
+l Fund recalculation logic that keeps a live, accurate strip showing total funds raised/available,
+formatted in Indian currency notation (INR), including short-form formatting for large numbers.
+3.6 Grant Tracker
+l NGOs/companies can submit grant applications through a structured modal form.
+l Grant status management (e.g. pending, approved, rejected) with persisted state.
+3.7 News Feed & Event Calendar
+l An internal social-style news feed where updates can be posted, filtered by type, and liked.
+l A full event calendar with month-by-month navigation, used to track NGO and company events and
+global campaigns.
+3.8 Collaboration & Resource Sharing
+l A messaging interface allowing companies to select an NGO and exchange messages directly within
+the portal.
+l A shared resource board where NGOs and partners can post and browse shared resources relevant
+to ongoing campaigns.
+3.9 Alerts & Notifications
+A notification centre surfaces system and activity alerts (e.g. new verification requests, grant updates),
+with user-configurable alert preferences.
+3.10 Public Transparency Dashboard
+A transparency module is presented for public/donor consumption, summarising how funds have been
+raised and spent across NGOs and campaigns — reinforcing donor trust and accountability, which is one
+of the biggest pain points for NGOs seeking long-term partnerships.
+4. Technical Implementation
+l Front-end: Pure HTML5, CSS3 (custom design system using CSS variables for a consistent dark,
+glassmorphism-inspired theme) and vanilla JavaScript — no heavy framework dependency, making
+the app fast and easy to host anywhere.
+l Typography & Design: Custom design tokens (colour palette, spacing, border-radius, shadows)
+defined via CSS variables; Google Fonts ('Syne' for headings, 'DM Sans' for body) for a modern,
+professional look; responsive grid layouts for mobile and desktop.
+l Data Persistence: Browser localStorage used to persist companies, NGOs, donations, grants, news
+posts, alerts, and access records between sessions without a backend database.
+l Spreadsheet Processing: SheetJS (xlsx.full.min.js) integrated for parsing uploaded Excel files
+entirely client-side.
+l Mapping: Leaflet.js integrated for rendering the interactive, colour-coded impact map with markers
+and fly-to navigation.
+l Application Architecture: A single-page application (SPA) pattern, where distinct 'pages' (Index,
+Home/Dashboard, Map, Company Profile, Ad/Campaign Detail, Verification) are shown/hidden via a
+central showPage() router, and dashboard content is further split into switchable tabs using a
+switchTab() controller.
+l State Management: Custom JavaScript functions handle saving/loading companies and access
+records, recalculating funds, and rendering each UI section reactively whenever underlying data
+changes.
+5. Skills & Concepts Demonstrated
+l Front-end engineering: responsive UI/UX design, component-style page/tab architecture,
+modal-driven workflows, and design-system thinking.
+l Client-side data engineering: parsing, validating, and transforming spreadsheet data into structured
+statistics across nine distinct social-impact domains.
+l Geospatial visualisation: integrating and customising a mapping library for real-world location-based
+reporting.
+l State and persistence management in the browser without a backend.
+l Designing for multiple stakeholder roles (NGOs, corporate/CSR partners, donors/public) within one
+cohesive product.
+l End-to-end product thinking: from onboarding and verification, to operational dashboards, to
+public-facing transparency reporting.
+6. Real-World Relevance & Impact
+NGO HUB Portal mirrors a genuine gap in the social impact sector: the lack of a single, trustworthy
+platform connecting NGOs with corporate CSR partners and donors, backed by verifiable, data-driven
+reporting. By combining structured NGO verification, granular impact analytics across multiple welfare
+domains, geospatial visualisation, and a public transparency layer, the project demonstrates a practical,
+deployable solution that could meaningfully improve trust, accountability, and collaboration in the NGO
+ecosystem. The project reflects a strong interest in building socially impactful, assistive technology — an
+interest that has also shaped other independent work, such as IoT-based assistive and
+posture-monitoring devices.
+7. Conclusion
+NGO HUB Portal is a complete, feature-rich, single-page web application that goes well beyond a typical
+front-end project: it implements multi-domain data analytics, geospatial visualisation, donation and grant
+workflows, collaboration tools, and a public transparency dashboard, all wrapped in a polished, modern
+UI. It demonstrates strong full-stack-adjacent front-end engineering skills, an ability to design for multiple
+user roles, and a clear focus on solving a meaningful, real-world social impact problem through
+technology.
+Prepared by Naresh T | B.E. Electronics & Communication Engineering, Loyola ICAM College of
+Engineering and Technology (LICET)
